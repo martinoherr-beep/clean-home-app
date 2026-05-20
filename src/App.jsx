@@ -21,12 +21,12 @@ export default function App() {
     hora: '08:00 AM',
     nombre: '',
     telefono: '',
-    notas: ''
+    notes: ''
   });
 
   const [showReviewModal, setShowReviewModal] = useState(false);
 
-  // DATOS SIMULADOS DE LA AGENDA
+  // DATOS SIMULADOS DE LA AGENDA (CORREGIDO)
   const [citas, setCitas] = useState([
     { id: 1, cliente: "Laura Estévez", fecha: "2026-05-20", hora: "08:00 AM", servicio: "Profunda", estatus: "Confirmada" },
     { id: 2, cliente: "Roberto Sanz", fecha: "2026-05-20", hora: "12:00 PM", servicio: "Express", estatus: "Pendiente" },
@@ -84,7 +84,7 @@ export default function App() {
       hora: '08:00 AM',
       nombre: '',
       telefono: '',
-      notas: ''
+      notes: ''
     });
   };
 
@@ -94,7 +94,6 @@ export default function App() {
   if (vista === 'admin') {
     return (
       <div className="min-h-screen bg-slate-50 flex flex-col lg:flex-row font-sans antialiased">
-        {/* Sidebar adaptativo: filas en móvil, columna en PC */}
         <aside className="w-full lg:w-64 bg-white border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-row lg:flex-col justify-between lg:justify-start p-4 lg:p-6 shrink-0 items-center lg:items-start">
           <div className="text-xl font-bold text-slate-900 flex items-center gap-2">
             <span className="text-cyan-500">•</span> CleanAdmin
@@ -110,14 +109,12 @@ export default function App() {
           </div>
         </aside>
 
-        {/* Contenedor principal con control de desborde */}
         <main className="flex-1 p-4 sm:p-6 lg:p-8 min-w-0 overflow-x-hidden">
           <header className="mb-6">
             <h1 className="text-xl sm:text-2xl font-black text-slate-900">Control de Agenda</h1>
             <p className="text-slate-500 text-xs sm:text-sm">Gestiona las solicitudes de hoy de manera táctil.</p>
           </header>
 
-          {/* Caja contenedora con scroll horizontal suave para celulares */}
           <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
             <div className="overflow-x-auto w-full block whitespace-nowrap lg:whitespace-normal">
               <table className="w-full text-left border-collapse min-w-[500px] lg:min-w-0">
@@ -173,14 +170,14 @@ export default function App() {
   }
 
   // =========================================================
-  // VISTA 2: LANDING PAGE PÚBLICA
+  // VISTA 2: LANDING PAGE PÚBLICA (ESTRUCTURA ORIGINAL LIMPIA)
   // =========================================================
   return (
-    <div className="min-h-screen bg-cyan-50/50 text-slate-800 font-sans antialiased selection:bg-cyan-200 overflow-x-hidden">
+    <div className="min-h-screen bg-cyan-50/50 text-slate-800 font-sans antialiased selection:bg-cyan-200 pt-24 sm:pt-32 relative">
       
-      {/* Navbar */}
-      <header className="sticky top-0 z-50 max-w-6xl mx-auto px-3 sm:px-4 pt-3 sm:pt-4">
-        <div className="backdrop-blur-xl bg-white/70 border border-slate-200/40 rounded-2xl sm:rounded-3xl shadow-lg shadow-cyan-900/5 px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
+      {/* NAVBAR ORIGINAL FIJO CORREGIDO */}
+      <div className="fixed top-0 left-0 right-0 z-50 px-4 pt-3 sm:pt-4 bg-transparent pointer-events-none">
+        <header className="max-w-6xl mx-auto backdrop-blur-md bg-white/80 border border-slate-200/40 rounded-2xl sm:rounded-3xl shadow-lg px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center pointer-events-auto">
           <div className="text-xl sm:text-2xl font-black tracking-tighter text-slate-900 flex items-center gap-1">
             <span className="text-cyan-500">•</span> CleanHome
           </div>
@@ -196,15 +193,15 @@ export default function App() {
           >
             Agendar
           </button>
-        </div>
-      </header>
+        </header>
+      </div>
 
       {/* Hero */}
-      <section id="inicio" className="relative px-4 pt-12 sm:pt-20 pb-12 max-w-6xl mx-auto grid md:grid-cols-12 gap-8 md:grid-cols-12 items-center">
+      <section id="inicio" className="relative px-4 pb-12 max-w-6xl mx-auto grid md:grid-cols-12 gap-8 items-center pt-4">
         <div className="absolute top-0 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-cyan-100 rounded-full blur-[100px] -z-10" />
         <div className="md:col-span-7 space-y-4 sm:space-y-6 text-center md:text-left">
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-slate-950 tracking-tighter leading-[1.05] md:leading-[0.95]">
-            Hogar impecable,<br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-cyan-500">mientras tú</span> disfrutas
+            Hogar impecable,<br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-cyan-500">mientras tú</span> disfruta
           </h1>
           <p className="text-base sm:text-xl text-slate-700 max-w-xl mx-auto md:mx-0 leading-relaxed font-medium">
             Servicios profesionales de limpieza con agenda transparente para tu tranquilidad. Seguridad, frescura y confianza.
@@ -223,7 +220,7 @@ export default function App() {
         <div className="md:col-span-5 flex flex-col gap-3 w-full max-w-md mx-auto md:mx-0">
           <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 text-center md:text-left">Clientes satisfechos:</div>
           {testimonios.slice(0, 2).map((t) => (
-            <div key={t.id} className="p-4 sm:p-5 bg-cyan-50 border border-cyan-100 rounded-2xl sm:rounded-3xl shadow-sm">
+            <div key={t.id} className="p-4 sm:p-5 bg-white border border-cyan-100 rounded-2xl sm:rounded-3xl shadow-sm">
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center font-bold text-xs shrink-0 border border-cyan-200">{t.nombre[0]}</div>
                 <div className="space-y-0.5 flex-1 min-w-0">
@@ -284,7 +281,7 @@ export default function App() {
           <div className="grid md:grid-cols-3 gap-6 sm:gap-10">
             {servicios.map((s) => (
               <div key={s.id} className="group bg-white border border-cyan-100 p-6 sm:p-10 rounded-2xl sm:rounded-[32px] hover:shadow-xl transition-all">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-3xl bg-cyan-100 text-cyan-600 flex items-center justify-center text-2xl sm:text-3xl mb-5 sm:text-3xl sm:mb-8 border border-cyan-200">{s.icon}</div>
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-3xl bg-cyan-100 text-cyan-600 flex items-center justify-center text-2xl sm:text-3xl mb-5 border border-cyan-200">{s.icon}</div>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-950 mb-2">{s.titulo}</h3>
                 <p className="text-xs sm:text-base text-slate-600 font-medium leading-relaxed">{s.desc}</p>
               </div>
@@ -302,7 +299,7 @@ export default function App() {
 
         <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
           {testimonios.map((t) => (
-            <div key={t.id} className="p-5 sm:p-8 bg-cyan-50 border border-cyan-100 rounded-2xl sm:rounded-3xl shadow-sm">
+            <div key={t.id} className="p-5 sm:p-8 bg-white border border-cyan-100 rounded-2xl sm:rounded-3xl shadow-sm">
               <div className="text-amber-500 text-xs sm:text-sm mb-3 tracking-tighter">{t.estrellas}</div>
               <p className="text-xs sm:text-base text-slate-700 italic mb-4 leading-relaxed">"{t.comentario}"</p>
               <div className="flex items-center gap-2.5">
@@ -337,11 +334,9 @@ export default function App() {
         </div>
       </footer>
 
-      {/* =========================================================
-          MODALES REFORMADOS Y TOTALMENTE RESPONSIVOS MÓVIL
-         ========================================================= */}
+      {/* MODALES */}
 
-      {/* 1. MODAL LOGIN */}
+      {/* MODAL LOGIN */}
       {showLoginModal && (
         <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-3">
           <div className="bg-white rounded-2xl sm:rounded-3xl w-full max-w-xs sm:max-w-sm shadow-2xl p-5 sm:p-8 border border-slate-100">
@@ -366,7 +361,7 @@ export default function App() {
         </div>
       )}
 
-      {/* 2. MODAL AGENDAR POR PASOS ELÁSTICO */}
+      {/* MODAL AGENDAR POR PASOS */}
       {showModal && (
         <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-3">
           <div className="bg-white rounded-2xl sm:rounded-3xl w-full max-w-md shadow-2xl p-4 sm:p-6 border border-slate-100 max-h-[85vh] overflow-y-auto">
@@ -384,7 +379,6 @@ export default function App() {
               </button>
             </div>
 
-            {/* Pasos adaptables para que no salgan de rango en 320px */}
             <div className="flex items-center justify-between mb-5 bg-cyan-50 p-2 rounded-xl border border-cyan-100 text-[10px] sm:text-xs font-bold tracking-tight text-cyan-600 uppercase">
               <span className={`px-2 py-1 rounded-lg ${pasoAgenda === 1 ? 'bg-cyan-500 text-white shadow-sm' : ''}`}>1. Tipo</span>
               <span className="text-cyan-300">→</span>
@@ -394,8 +388,6 @@ export default function App() {
             </div>
 
             <form onSubmit={manejarEnvioReserva} className="space-y-4">
-              
-              {/* PASO 1 */}
               {pasoAgenda === 1 && (
                 <div className="space-y-4">
                   <div>
@@ -418,7 +410,6 @@ export default function App() {
                 </div>
               )}
 
-              {/* PASO 2 */}
               {pasoAgenda === 2 && (
                 <div className="space-y-4">
                   <div>
@@ -440,25 +431,23 @@ export default function App() {
                 </div>
               )}
 
-              {/* PASO 3 */}
               {pasoAgenda === 3 && (
                 <div className="space-y-4">
                   <input type="text" required placeholder="Nombre Completo" value={reserva.nombre} onChange={(e) => setReserva({...reserva, nombre: e.target.value})} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm"/>
                   <input type="tel" required placeholder="Teléfono" value={reserva.telefono} onChange={(e) => setReserva({...reserva, telefono: e.target.value})} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm"/>
-                  <textarea rows="2" placeholder="Notas adicionales (opcional)" value={reserva.notas} onChange={(e) => setReserva({...reserva, notas: e.target.value})} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm resize-none"/>
+                  <textarea rows="2" placeholder="Notas adicionales (opcional)" value={reserva.notes} onChange={(e) => setReserva({...reserva, notes: e.target.value})} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm resize-none"/>
                   <div className="flex gap-2.5">
                     <button type="button" onClick={() => setPasoAgenda(2)} className="w-1/3 py-3 bg-slate-100 text-slate-600 text-xs font-bold rounded-xl">Atrás</button>
                     <button type="submit" className="w-2/3 py-3 bg-blue-600 text-white text-sm font-bold rounded-xl active:scale-95 transition-all">Confirmar 🚀</button>
                   </div>
                 </div>
               )}
-
             </form>
           </div>
         </div>
       )}
 
-      {/* 3. MODAL OPINIÓN RESPONSIVO */}
+      {/* MODAL OPINIÓN RESPONSIVO */}
       {showReviewModal && (
         <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-3">
           <div className="bg-white rounded-2xl sm:rounded-3xl w-full max-w-xs sm:max-w-sm shadow-2xl p-5 sm:p-6 border border-slate-100">
