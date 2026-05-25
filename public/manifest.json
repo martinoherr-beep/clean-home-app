@@ -1,0 +1,16 @@
+{
+  "short_name": "CleanHome",
+  "name": "CleanHome – AGG Cleaning",
+  "icons": [
+    {
+      "src": "/Logo.png",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#06b6d4",
+  "background_color": "#ffffff"
+}

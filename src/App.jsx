@@ -179,7 +179,7 @@ export default function App() {
       <div className="fixed top-0 left-0 right-0 z-50 px-4 pt-3 sm:pt-4 bg-transparent pointer-events-none">
         <header className="max-w-6xl mx-auto backdrop-blur-md bg-white/80 border border-slate-200/40 rounded-2xl sm:rounded-3xl shadow-lg px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center pointer-events-auto">
           <div className="text-xl sm:text-2xl font-black tracking-tighter text-slate-900 flex items-center gap-1">
-            <span className="text-cyan-500">•</span> CleanHome
+            <span className="text-cyan-500">•</span> AGG Cleaning
           </div>
           <nav className="hidden md:flex gap-8 text-sm font-semibold text-blue-900/80">
             <a href="#inicio" className="hover:text-cyan-600 transition-colors">Inicio</a>
