@@ -173,7 +173,7 @@ export default function App() {
   // VISTA 2: LANDING PAGE PÚBLICA (ESTRUCTURA ORIGINAL LIMPIA)
   // =========================================================
   return (
-    <div className="min-h-screen bg-cyan-50/50 text-slate-800 font-sans antialiased selection:bg-cyan-200 pt-24 sm:pt-32 relative">
+    <div className="min-h-screen w-full bg-cyan-50/50 text-slate-800 font-sans antialiased selection:bg-cyan-200 pt-24 sm:pt-28">
       
       {/* NAVBAR ORIGINAL FIJO CORREGIDO */}
       <div className="fixed top-0 left-0 right-0 z-50 px-4 pt-3 sm:pt-4 bg-transparent pointer-events-none">
